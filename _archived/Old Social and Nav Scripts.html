@@ -1,0 +1,9 @@
+SET @contentSOC = ContentArea("13938289")
+SET @conLenSOC = Length(@contentSOC)
+SET @endIndexSOC = SUBTRACT(@conLenSOC, 29)
+SET @displayContentSOC = Substring(@contentSOC,141,@endIndexSOC)
+
+SET @contentNAV = ContentArea("13937996")
+SET @conLenNAV = Length(@contentNAV)
+SET @endIndexNAV = SUBTRACT(@conLenNAV, 29)
+SET @displayContentNAV = Substring(@contentNAV,141,@endIndexNAV)

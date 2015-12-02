@@ -1,0 +1,85 @@
+<script language=javascript runat=server>
+
+Platform.Load("core", "1");
+
+//Variables
+var pg = Request.GetQueryStringParameter('pg');
+
+
+//Display Page
+var displayID;
+
+var jQuery = true;
+var jQueryUI = false;
+var jQueryValidate = false;
+
+//Functions
+var copyrightDate = new Date();
+var copyrightYear = copyrightDate.getFullYear(); 
+
+function cleanContent(content){
+	return content.substring(140, content.length - 18);
+}
+	
+	
+switch(pg){
+	case "in":
+		jQuery = true;
+		displayID = 13941572;
+	case "pr":
+		jQuery = true;
+		displayID = 13946094;
+	case "jo":
+		jQuery = true;
+		jQueryUI = true;
+		jQueryValidate = true;
+		displayID = 13947122;
+	case "co":
+		jQuery = true;
+		jQueryUI = true;
+		displayID = 13947139;
+	default:
+		displayID = 13941522;
+}
+
+var head = ContentArea(13941342);
+var header = ContentArea(13941379);
+var displayPage = ContentArea(displayID);
+var footer = ContentArea(13941389);
+
+</script>
+
+<ctrl:var name=head />
+
+<script language=javascript runat=server>
+if(jQuery){
+</script>
+
+<script src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/jquery-2.1.0.min.js"></script>
+
+<script language=javascript runat=server>
+}
+if(jQueryUI){
+</script>
+
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<script language=javascript runat=server>
+}
+if(jQueryValidate){
+</script>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+<script language=javascript runat=server>
+}
+</script>
+
+</head>
+
+
+<ctrl:var name=displayPage />
+
+<ctrl:var name=footer />

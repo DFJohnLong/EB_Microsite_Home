@@ -1,0 +1,185 @@
+%%[
+SET @emailForm = RequestParameter("email")
+SET @route = "new"
+IF IsEmailAddress(@emailForm) THEN
+SET @zipForm = RequestParameter("zip")
+SET @mobileForm = RequestParameter("mobile")
+SET @checkForm = RequestParameter("check")
+SET @Valid = "True"
+IF	Empty(@zipForm)
+OR	Empty(@mobileForm)
+THEN
+SET @Valid = "False"
+ENDIF
+IF (@Valid == "True") THEN
+SET @subscriber = CreateObject( "Subscriber" )
+SetObjectProperty( @subscriber, "EmailAddress", @emailForm )
+SetObjectProperty( @subscriber, "SubscriberKey", @emailForm )
+SET @att1 = CreateObject( "Attribute" )
+SetObjectProperty( @att1, "Name", "Zip" )
+SetObjectProperty( @att1, "Value", @zipForm )
+AddObjectArrayItem( @subscriber, "Attributes", @att1 )
+SET @att2 = CreateObject( "Attribute" )
+SetObjectProperty( @att2, "Name", "Mobile Phone" )
+SetObjectProperty( @att2, "Value", @mobileForm )
+AddObjectArrayItem( @subscriber, "Attributes", @att2 )
+IF (@checkForm == "subscribe") THEN
+SET @subscription = CreateObject("SubscriberList")
+SetObjectProperty( @subscription, "ID", "18687055")
+SetObjectProperty( @subscription, "IDSpecified", "true" )
+SetObjectProperty( @subscription, "Status", "Active" )
+SetObjectProperty( @subscription, "StatusSpecified", "true" )
+AddObjectArrayItem( @subscriber, "Lists", @subscription )
+ENDIF
+Set @options = CreateObject("UpdateOptions")
+Set @save = CreateObject("SaveOption")
+SetObjectProperty(@save,"SaveAction","UpdateAdd")
+SetObjectProperty(@save,"PropertyName","*")
+AddObjectArrayItem(@options,"SaveOptions", @save)
+InvokeUpdate(@subscriber,@apistatus,@Error,@options)
+SET @url = "http://pages.s6.exacttarget.com/page.aspx?QS=38dfbe491fab00ea17e9dd398ac149fdba2b17f4ffa6597f0674da297dd511d7"
+SET @url = CONCAT(@url, "&mobile=", @mobileForm)
+SET @url = CONCAT(@url, "&zip=", @zipForm)
+SET @url = CONCAT(@url, "&email=", @emailForm)
+SET @transfer = HTTPGet(@url)
+IF(@Error == 0)THEN
+SET @route = "success"
+ENDIF
+ENDIF
+ENDIF
+]%%
+API Status: %%=v(@apistatus)=%% <br />
+Error: %%=v(@Error)=%% <br />
+Check: %%=v(@checkForm)=%% <br />
+Transfer: %%=v(@transfer)=%%
+<!-- Validation Javascript -->
+<script>
+$.validator.setDefaults({
+submitHandler: function() {
+$("div.error").hide();
+form.submit();
+}
+});
+$().ready(function() {
+$("#myform").validate({
+invalidHandler: function(e, validator) {
+var errors = validator.numberOfInvalids();
+if (errors) {
+var message = '!!  Please complete the required fields  !!';
+$("div.error span").html(message);
+$("div.error").show();
+location.hash = "#val";
+} else {
+$("div.error").hide();
+alert("no errors");
+}
+},
+rules: {
+mobile: {
+required: true,
+phoneUS: true,
+minlength: 10,
+maxlength: 10,
+},
+email: {
+required: true,
+email: true
+},
+zip: {
+required: true,
+minlength: 5,
+maxlength: 5,
+digits: true
+}
+},
+messages: {
+mobile: {
+required: "Please provide a valid phone number",
+phoneUS: "Not a valid US phone number"
+},
+email: {
+required: "Please provide your email address",
+email: "Please format: myemail@myaddress.com"
+},
+zip: {
+required: "Please provide a valid zip code",
+minlength: "Must be at least 5 characters long",
+maxlength: "Zip code is too long",
+digits: "Please provide a valid zip code"
+}
+}
+});
+});
+</script>
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+$("#hide").click(function(){
+$(".target").hide( "blind", {direction: "horizontal"}, 1000 );
+});
+$("#show").click(function(){
+$(".target").show( "blind", {direction: "vertical"}, 300 );
+});
+});
+</script>
+<h1>Be a part of our mobile community!</h1>
+<p>
+Receive exclusive access to delicious recipes, helpful tips, and localized offers straight to your mobile device. Signing up is simple and we'll even sweeten the deal with a $1 off any <span style="color: #da100e; font-weight: bold;">(1) Earth Balance<sup>&reg;</sup> coupon for joining.</span>
+</p>
+<div class="dividerline">
+</div>
+%%[ IF(@route == "new")THEN ]%%
+<div style="display: none;" class="error errorTop target animated fadeIn">
+<a name="val"></a>
+<span class="errorText"></span>
+<br clear="all" />
+</div>
+<form action="http://pages.exacttarget.com/earthbalancenatural/?pg=jo" id="myform" method="post">
+	<div class="row">
+	<div class="one-half column">
+	<label>*Mobile Number</label>
+	<input type="text" value="" id="mobile" name="mobile" maxlength="10" class="required" placeholder="Mobile" />
+	</div>
+	<div class="one-half column">
+	<label>*Email Address <sup>&dagger;</sup></label>
+	<input type="email" value="" id="email" name="email" class="required" placeholder="Email" />
+	</div>
+	</div>
+	<div class="row">
+	<div class="one-half column">
+	<label>*Zip Code</label>
+	<input type="text" value="" id="zip" name="zip" maxlength="5" class="required" placeholder="Zip" />
+	</div>
+	<div class="one-half column">
+	<table width="auto" cellspacing="0" cellpadding="0" style="margin-bottom: 0px; margin-top: 16px;">
+		<tbody>
+			<tr>
+				<td width="30" valign="top" style="border-bottom: 0px none; padding-right: 0px;">
+				<div class="squaredTwo">
+				<input type="checkbox" value="subscribe" id="squaredTwo" name="check" checked="" />
+				<label for="squaredTwo"></label>
+				</div>
+				</td>
+				<td width="235" style="border-bottom: 0px none; margin: 0px; padding-right: 0px; font-size: 14px;">Yes, I'd like to receive occasional email updates, special offers, and other information from Earth Balance.</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	</div>
+	<div class="row">
+	<div class="one-half column">
+	<input type="submit" id="show" value="" />
+	</div>
+	<div class="one-half column">
+	<span style="font-size: 14px; text-align: left;"><br />
+	<br />
+	(*) Indicates required fields</span>
+	</div>
+	</div>
+</form>
+<sup>&dagger;</sup>By providing your email address, you'll receive a $1 off any (1) Earth Balance<sup>&reg;</sup> coupon to your email inbox. You are not subscribing to receive promotional emails from Earth Balance. By clicking on the check box you agree to receive communications from Earth Balance and its partners.
+%%[ELSEIF(@route == "success")THEN]%%
+<div class="error target animated fadeIn confirmTop">
+<span class="errorText">Thank you for signing up!</span>
+<br clear="all" />
+</div>
+%%[ENDIF]%%

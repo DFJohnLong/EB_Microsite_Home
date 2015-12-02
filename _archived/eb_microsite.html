@@ -1,0 +1,254 @@
+%%[
+	SET @content = ContentArea("14")
+	SET @conLen = Length(@content)
+	SET @endIndex = SUBTRACT(@conLen, 29)
+]%%
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+	<title>Your page title here :)</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/toggle-menu.css">
+
+	<!-- FONT
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/normalize.css">
+	<link rel="stylesheet" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/skeleton.css">
+
+	<!-- Favicon
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="icon" type="image/png" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/favicon.png">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			
+		}
+		
+		#page {
+			background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_bg-texture.jpg) top center repeat;
+			height: auto !important;
+			padding: 0px !important;
+		}
+		
+		.container {
+			max-width: 1172px !important;
+		}
+		
+		.eblogo {
+			position: absolute;
+			z-index: 10;
+		}
+		
+		.righthdr {
+			height: 216px;
+		}
+
+		.social {
+			position: absolute;
+			top: 10px;
+			right: 0;
+		}
+		
+		.nav {
+			position: absolute;
+			bottom: 28px;
+			right: 0px;
+		}
+		
+		.mobnav {
+			width: 50%;
+			float: right;
+			text-align: center;
+		}
+		
+		#toggle-menu {
+			border: none !important;
+			position: relative !important;
+			top: 40px !imporant;
+		}
+		
+		.herobg {
+			height: auto;
+			margin-top: -35px;
+			background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_banner-bg.jpg) top center repeat-x;
+		}
+		
+		.hero {
+			text-align: center;
+			margin-top: -35px;
+		}
+		
+		img.hero {
+			width: 100%;
+			margin: auto;
+		}
+		
+		.heromobcont {
+			text-align: center;
+		}
+		
+		img.thirdimg {
+			width: 100%;
+		}
+		
+		
+		
+		
+		/* For devices larger than 550px */
+		@media (min-width: 550px) {
+			.mobnav {
+				display: none !important;
+			}
+			
+			.heromob {
+				display: none !important;
+			}
+		}
+		
+		
+		
+		@media (max-width: 1115px) {
+			.container {
+				padding: 0 !important;
+			}
+			
+			.nav {
+				text-align: right !important;
+			}
+			
+			img.navtabsm {
+				width: 25% !important;
+			}
+			
+			img.navtablg {
+				width: 32% !important;
+			}
+		}
+		
+		@media (max-width: 960px) {
+			.hdr {
+				height: 212px !important;
+			}
+			
+			img.navtabsm {
+				width: 15% !important;
+			}
+			
+			img.navtablg {
+				width: 22% !important;
+			}
+		}
+		
+		@media (max-width: 550px) {
+			.hidemob {
+				display: none !important;
+			}
+			
+			.hdr {
+				height: 198px !important;
+			}
+			
+			img.eblogo {
+				max-width: 45% !important;
+			}	
+			
+			.mobnav {
+				width: 50% !important;
+				height: auto !important;
+				display: block !important;
+			}
+		}
+		
+		@media (max-width: 470px) {
+			.hdr {
+				height: 170px !important;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	
+	<ul id="menu">
+		<li><a title="Home" href="/">Home</a></li>
+		<li><a title="About Me" href="/about">About Me</a></li>
+		<li><a title="Contact Me" href="/contact">Contact Me</a></li>
+	</ul>
+	
+	<div id="page">
+		<div class="container">
+			<div class="row hdr">
+				<div class="two columns">
+					<img class="eblogo" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_eb-logo.png">
+					<div class="mobnav">
+						<a href="#" id="toggle-menu"><img src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_toggle-menu.png" /></a>
+					</div>
+				</div> 
+				<div class="ten columns righthdr hidemob">
+					<div class="social">
+						<img src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_social_fb.gif" /> <img src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_social_tw.gif" /> <img src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_social_pi.gif" /> <img src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_social_in.gif" />
+					</div>
+					<div class="nav">
+						<img class="navtabsm" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_inspiration.png" /><img class="navtablg" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_promotions.png" /><img class="navtabsm" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_joinourtribe.png" />
+					</div>
+				</div>
+			</div>
+		</div><!-- End Container -->
+
+		<div class="herobg">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns hero hidemob">
+						<img class="hero" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_hero-bannerimg.png" />
+					</div>
+					<div class="twelve columns heromobcont">
+						<img class="heromob" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_hero-bannerimg-mob.png" />
+					</div>
+				</div>
+			</div><!-- End Container -->
+		</div><!-- End HeroBG -->
+	
+	
+		<div class="container">
+			<div class="row">
+				<div class="one-third column"><img class="thirdimg" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_content_onethird-inspirations.png" /></div>
+				<div class="one-third column"><img class="thirdimg" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_content_onethird-promotions.png" /></div>
+				<div class="one-third column"><img class="thirdimg" src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_content_onethird-textpromos.png" /></div>
+			</div>
+			<div class="row">
+				<div class="twelve columns"></div>
+			</div>
+		</div><!-- End Container -->
+	</div><!-- End Page -->
+	
+	<script src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/jquery-2.1.0.min.js"></script>
+	<script src="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/toggle-menu.js"></script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+<script language=javascript runat=server>
+
+var contentBAN = cleanContent(ContentArea(13941943));
+var contentBANMOB = cleanContent(ContentArea(13941955));
+var contentLBODY = cleanContent(ContentArea(13941974));
+var contentRBODY = cleanContent(ContentArea(13941989));
+
+
+</script>
+
+<body class="insppage">
+    <!-- Header -->
+    <ctrl:var name=header />
+
+    <!-- Hero Banner -->
+    <div class="herobg">
+        <div class="container">
+            <div class="row padtbfifteen">
+                <div class="twelve columns herodesktop">
+                    <ctrl:var name=contentBAN />
+                </div>
+                <div class="twelve columns heromob">
+                    <ctrl:var name=contentBANMOB />
+                </div>
+            </div>
+        </div><!-- End Container -->
+    </div><!-- End HeroBG -->
+
+    <!-- 3 Columns -->
+    <div class="container">
+        <div class="row padfifteen">
+			<div class="nine columns"><ctrl:var name=contentLBODY /></div>
+			<div class="three columns"><ctrl:var name=contentRBODY /></div>
+        </div>
+    </div><!-- End Container -->

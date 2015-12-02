@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+
+<style>
+
+.error{
+	border: #FFBFBF;
+	background-color: #FFBFBF;
+}
+
+.errorText{
+	font-size: 16px;
+    font-family: "Lora",sans-serif;
+    color: #000;
+}
+
+.errorDiv{
+	vertical-align:middle;
+	display:inline-block;
+	padding: 10px;
+}
+
+
+</style>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+			$("div.error").hide();
+			form.submit();
+		}
+	});
+
+	$().ready(function() {
+
+	$("#myform").validate({
+		invalidHandler: function(e, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				var message = 'Please correct the highlighted fields!';
+				$("div.error span").html(message);
+				$("div.error").show();
+			} else {
+				$("div.error").hide();
+				alert("no errors");
+			}
+		},
+		rules: {
+			mobile: {
+			  required: true,
+			  phoneUS: true
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			zip: {
+				required: true,
+				minlength: 5,
+				maxlength: 5,
+				digits: true
+			}
+		},
+		messages: {
+			mobile: {
+			  required: "",
+			  phoneUS: ""
+			},
+			email: {
+				required: "",
+				email: ""
+			},
+			zip: {
+				required: "",
+				minlength: "",
+				maxlength: "",
+				digits: ""
+			}
+		}
+	});
+
+	});
+</script>
+
+</head>
+
+<body>
+
+<div class="error" style="display:none;">
+    <span class="errorText"></span>
+    <br clear="all">
+</div>
+
+<form id="myform" method="post">
+
+    <input id="mobile" name="mobile" type="text" class="required" placeholder="Mobile"> <br />
+    
+    <input id="email" name="email" type="email" class="required" placeholder="Email" /> <br />
+    
+    <input id="zip" name="zip" type="text" maxlength="5" class="required" placeholder="Zip"> <br /><br />
+    
+    <input type="submit" value="Validate!">
+
+
+</form>
+
+
+
+</body>
+</html>

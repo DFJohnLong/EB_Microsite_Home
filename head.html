@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+	<title>Earth Balance</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/toggle-menu.css">
+
+	<!-- FONT
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/normalize.css">
+	<link rel="stylesheet" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/skeleton.css">
+
+	<!-- Favicon
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="icon" type="image/png" href="http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/favicon.png">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html {
+			height: 100%;
+			background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_bg-texture.jpg) top center repeat !important;
+		}
+		
+		body {
+			min-height: 100%;
+			background: #333 none repeat scroll 0 0 !important;
+		}
+		
+		#page {
+			min-height: 100%;
+			background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_bg-texture.jpg) top center repeat !important;
+			height: auto !important;
+			padding: 0px !important;
+		}
+		
+		.menu-visible {
+			background-color: #333 none repeat scroll 0 0 !important;
+		}
+		
+		.container {
+			max-width: 993px !important;
+		}
+		
+		.eblogo {
+			position: absolute;
+			z-index: 10;
+		}
+		
+		.righthdr {
+			height: 216px;
+		}
+
+		.social {
+			position: absolute;
+			top: 10px;
+			right: 0;
+		}
+		
+		
+		/*------ Navigation ------*/
+		.nav {
+			position: absolute;
+			bottom: 28px;
+			right: 0px;
+		}
+		
+		ul.desktopnav li {
+				display:inline-block;
+				padding: 0;
+				margin-left: -4px;
+			}
+			
+			.navinsp {
+				width: 199px;
+				height: 80px;
+				background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_inspiration.png);
+			}
+			
+			.navpromos {
+				width: 243px;
+				height: 87px;
+				background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_promotions.png);
+			}
+			
+			.navjoin {
+				width: 228px;
+				height: 78px;
+				background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_joinourtribe.png);
+			}
+			
+				/*------ Inspiration Page ------*/
+				.insppage .navinsp {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_inspiration-insp.png);
+				}
+
+				.insppage .navpromos {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_promotions-insp.png);
+				}
+
+				.insppage .navjoin {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_joinourtribe-insp.png);
+				}
+
+				/*------ Promos Page ------*/
+				.promospage .navinsp {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_inspiration-promo.png);
+				}
+
+				.promospage .navpromos {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_promotions-promo.png);
+				}
+
+				.promospage .navjoin {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_joinourtribe-promo.png);
+				}
+			
+				/*------ Join Our Tribe Page ------*/
+				.joinpage .navinsp {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_inspiration-join.png);
+				}
+
+				.joinpage .navpromos {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_promotions-join.png);
+				}
+
+				.joinpage .navjoin {
+					background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_nav_joinourtribe-join.png);
+				}
+		
+		.mobnav {
+			width: 50%;
+			float: right;
+			text-align: center;
+		}
+		
+		#toggle-menu {
+			border: none !important;
+			position: relative !important;
+			top: 40px !imporant;
+		}
+		
+		.menu-visible #page {
+			right: 180px !important;
+		}
+		
+		.animating.left #page {
+			transform: translate3d( -180px, 0, 0 ) !important;
+			-webkit-transform: translate3d( -180px, 0, 0 ) !important;
+		}
+		
+		.animating.right #page {
+			transform: translate3d( 180px, 0, 0 );
+			-webkit-transform: translate3d( 180px, 0, 0 );
+		}
+		
+		#menu {
+			width: 130px !important;
+		}
+		
+			
+			
+		
+		
+		/* Hero Banner */
+		.herobg {
+			height: auto;
+			margin-top: -35px;
+			background: url(http://image.exct.net/lib/fe5d15707d62067f7d13/m/1/eb_081815_banner-bg.jpg) top center repeat-x;
+		}
+		
+		.hero {
+			text-align: center;
+			margin-top: -35px;
+		}
+		
+		img.hero {
+			width: 100%;
+			margin: auto;
+		}
+		
+		.heromobcont {
+			text-align: center;
+		}
+		
+		
+		
+		/* Thirds */
+		img.thirdimg {
+			width: 100%;
+		}
+		
+		
+		
+		/* Footer */
+		.footerline {
+			text-align: center;
+		}
+		
+		.footertxt, .footertxt a {
+			font-family: Open-Sans, Arial, Helvetica;
+			font-size: 11px;
+			color: #432117;
+			text-decoration: none;
+		}
+		
+		a.footertxt:hover {
+			color: #C90805;
+		}
+		
+		.footertxtarea {
+			padding: 0 15px 30px 15px;
+		}
+		
+		
+		
+		/* For devices larger than 550px */
+		@media (min-width: 550px) {
+			.mobnav {
+				display: none !important;
+			}
+			
+			.heromob {
+				display: none !important;
+			}
+		}
+		
+		
+		
+		@media (max-width: 1115px) {
+			.container {
+				padding: 0 !important;
+			}
+			
+			.nav {
+				text-align: right !important;
+			}
+			
+			img.navtabsm {
+				width: 25% !important;
+			}
+			
+			img.navtablg {
+				width: 32% !important;
+			}
+		}
+		
+		@media (max-width: 960px) {
+			.hdr {
+				height: 212px !important;
+			}
+			
+			img.navtabsm {
+				width: 15% !important;
+			}
+			
+			img.navtablg {
+				width: 22% !important;
+			}
+			
+			.footerline {
+				width: 100% !important;
+			}
+			
+		}
+		
+		@media (max-width: 550px) {
+			.hidemob {
+				display: none !important;
+			}
+			
+			.hdr {
+				height: 198px !important;
+			}
+			
+			img.eblogo {
+				max-width: 45% !important;
+			}	
+			
+			.mobnav {
+				width: 50% !important;
+				height: auto !important;
+				display: block !important;
+			}
+			
+			.footertxtarea {
+				text-align: center !important;
+				line-height: 30px !important;
+			}
+			
+			.footertxt, .footertxt a {
+				font-size: 19px !important;
+				display: block !important;
+			}
+			
+			.copyrighttxt {
+				font-size: 13px !important;
+			}
+			
+		}
+		
+		@media (max-width: 470px) {
+			.hdr {
+				height: 170px !important;
+			}
+		}
+
+	</style>
+</head>

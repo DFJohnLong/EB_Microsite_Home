@@ -1,0 +1,37 @@
+<script language=javascript runat=server>
+
+var contentBAN = cleanContent(ContentArea(13938855));
+var contentBANMOB = cleanContent(ContentArea(13938879));
+var contentLCOL = cleanContent(ContentArea(13939074));
+var contentMCOL = cleanContent(ContentArea(13939080));
+var contentRCOL = cleanContent(ContentArea(13939081));
+
+
+</script>
+
+<body class="homepage">
+    <!-- Header -->
+    <ctrl:var name=header />
+
+    <!-- Hero Banner -->
+    <div class="herobg">
+        <div class="container">
+            <div class="row padtbfifteen">
+                <div class="twelve columns hero hidemob">
+                    <ctrl:var name=contentBAN />
+                </div>
+                <div class="twelve columns heromob">
+                    <ctrl:var name=contentBANMOB />
+                </div>
+            </div>
+        </div><!-- End Container -->
+    </div><!-- End HeroBG -->
+
+    <!-- 3 Columns -->
+    <div class="container">
+        <div class="row" style="margin-top: 30px;">
+            <div class="one-third column"><ctrl:var name=contentLCOL /></div>
+            <div class="one-third column"><ctrl:var name=contentMCOL /></div>
+            <div class="one-third column"><ctrl:var name=contentRCOL /></div>
+        </div>
+    </div><!-- End Container -->

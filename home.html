@@ -1,0 +1,73 @@
+%%[
+SET @contentHEAD = ContentArea("13941342")
+
+SET @contentHEADER = ContentArea("13941379")
+
+SET @contentFOOTER = ContentArea("13941389")
+
+SET @contentBTMSCRIPTS = ContentArea("13941396")
+
+SET @contentBAN = ContentArea("13938855")
+SET @conLenBAN = Length(@contentBAN)
+SET @endIndexBAN = SUBTRACT(@conLenBAN, 29)
+SET @displayContentBAN = Substring(@contentBAN,141,@endIndexBAN)
+
+SET @contentBANMOB = ContentArea("13938879")
+SET @conLenBANMOB = Length(@contentBANMOB)
+SET @endIndexBANMOB = SUBTRACT(@conLenBANMOB, 29)
+SET @displayContentBANMOB = Substring(@contentBANMOB,141,@endIndexBANMOB)
+
+SET @contentLCOL = ContentArea("13939074")
+SET @conLenLCOL = Length(@contentLCOL)
+SET @endIndexLCOL = SUBTRACT(@conLenLCOL, 29)
+SET @displayContentLCOL = Substring(@contentLCOL,141,@endIndexLCOL)
+
+SET @contentMCOL = ContentArea("13939080")
+SET @conLenMCOL = Length(@contentMCOL)
+SET @endIndexMCOL = SUBTRACT(@conLenMCOL, 29)
+SET @displayContentMCOL = Substring(@contentMCOL,141,@endIndexMCOL)
+
+SET @contentRCOL = ContentArea("13939081")
+SET @conLenRCOL = Length(@contentRCOL)
+SET @endIndexRCOL = SUBTRACT(@conLenRCOL, 29)
+SET @displayContentRCOL = Substring(@contentRCOL,141,@endIndexRCOL)
+]%%
+
+%%=v(@displayContentHEAD)=%%
+<body class="homepage">
+		<!-- Header -->
+		%%=v(@displayContentHEADER)=%%
+
+		<!-- Hero Banner -->
+		<div class="herobg">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns hero hidemob">
+						%%=v(@displayContentBAN)=%%
+					</div>
+					<div class="twelve columns heromobcont">
+						%%=v(@displayContentBANMOB)=%%
+					</div>
+				</div>
+			</div><!-- End Container -->
+		</div><!-- End HeroBG -->
+	
+		<!-- 3 Columns -->
+		<div class="container">
+			<div class="row">
+				<div class="one-third column">%%=v(@displayContentLCOL)=%%</div>
+				<div class="one-third column">%%=v(@displayContentMCOL)=%%</div>
+				<div class="one-third column">%%=v(@displayContentRCOL)=%%</div>
+			</div>
+		</div><!-- End Container -->
+	
+		%%=v(@displayContentFOOTER)=%%
+		
+	</div><!-- End Page -->
+	
+	%%=v(@displayContentBTMSCRIPTS)=%%
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
